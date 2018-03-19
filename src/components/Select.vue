@@ -374,7 +374,7 @@
           </a>
         </li>
         <li v-if="!filteredOptions.length" class="no-options">
-          <slot name="no-options">Sorry, no matching options.</slot>
+          <slot name="no-options">{{ noOptionsLabel }}</slot>
         </li>
       </ul>
     </transition>
@@ -632,6 +632,11 @@
           this.$emit('option:created', newOption)
           return newOption
         }
+      },
+
+      noOptionsLabel: {
+        type: String,
+        default: "Sorry, no matching options."
       },
 
       /**
